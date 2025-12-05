@@ -18,13 +18,13 @@ apptainer shell Pangaea.sif
 ```
 
 ### run as script
+
 ```bash
 path_to_sif_file=/project2/asteen_1130/kami_main_directory/tempelate_apptainers/Pangaea.sif
 path_run_pangaea_file=/opt/Pangaea/src/run_pangaea
 path_to_R1=/opt/Pangaea/example/linked_reads_example/atcc_short_R1.fastq
 path_to_R2=/opt/Pangaea/example/linked_reads_example/atcc_short_R2.fastq
 output_path=/project2/asteen_1130/kami_main_directory/tempelate_apptainers/output/
-
 apptainer exec $path_to_sif_file $path_run_pangaea_file \
   -s 10x \
   -r  $path_to_R1 \
