@@ -6,8 +6,9 @@ apptainers used in our lab
 ```bash
 curl -O https://raw.githubusercontent.com/KambizKalhor/bioinformatic_tools/master/build_pangaea.sh
 ```
-curl -O https://raw.githubusercontent.com/KambizKalhor/bioinformatic_tools/master/build_pangaea.sh
-### 2. build it, don't forget to set a path for apptainer cache
-sbatch build_pangaea.sh /path/to/apptainer_cache
 
+### 2. build it, don't forget to set a path for apptainer cache
+```bash
+sbatch build_pangaea.sh /path/to/apptainer_cache
+```
 ## How to use Pangaea
