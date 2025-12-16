@@ -17,7 +17,7 @@ conda create -n multiqc_env -y
 conda activate multiqc_env
 
 # install multiqc
-conda install multiqc
+conda install -c bioconda multiqc
 
 # Remove unneeded files
 apt-get -y clean
