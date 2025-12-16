@@ -10,16 +10,14 @@ apt-get -y upgrade
 
 # install mamba (replaces conda, but much faster):
 eval "$(conda shell.bash hook)"
-conda install -y mamba 
-
-# install metawrap:
-mamba create -y --name metawrap-env --channel ursky metawrap-mg=1.3.2
-conda activate metawrap-env
 
 
-# To fix the CONCOCT endless warning messages in metaWRAP=1.2+, run
-conda install -y blas=2.5=mkl
+# create a new environment:
+conda create -n multiqc_env -y
+conda activate multiqc_env
 
+# install multiqc
+conda install multiqc
 
 # Remove unneeded files
 apt-get -y clean
@@ -30,8 +28,7 @@ conda clean -yqa
 %test
 
 eval "$(conda shell.bash hook)"
-conda activate metawrap-env
-
+conda activate multiqc_env
 
 
 %help
@@ -39,4 +36,4 @@ conda activate metawrap-env
 Containerized Conda environment using miniforge3.
 When using the container, activate with:
     eval "$(conda shell.bash hook)"
-    conda activate metawrap-env
+    conda activate multiqc_env
