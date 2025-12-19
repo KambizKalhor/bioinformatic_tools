@@ -30,7 +30,7 @@ echo "Using Apptainer cache directory: $APPTAINER_CACHEDIR"
 module load apptainer
 
 # 3. Download the definition file
-curl -O https://raw.githubusercontent.com/KambizKalhor/bioinformatic_tools/master/Pangaea.def
+curl -O https://raw.githubusercontent.com/KambizKalhor/bioinformatic_tools/master/Pangaea/Pangaea.def
 
 # 4. Build the SIF image
 apptainer build Pangaea.sif Pangaea.def
