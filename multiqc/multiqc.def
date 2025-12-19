@@ -1,0 +1,39 @@
+Bootstrap: docker
+From: condaforge/miniforge3:latest
+
+
+%post
+
+# Update packages
+apt-get -y update
+apt-get -y upgrade
+
+# install mamba (replaces conda, but much faster):
+eval "$(conda shell.bash hook)"
+
+
+# create a new environment:
+conda create -n multiqc_env -y
+conda activate multiqc_env
+
+# install multiqc
+conda install -c bioconda multiqc
+
+# Remove unneeded files
+apt-get -y clean
+rm -rf /var/lib/apt/lists/*
+conda clean -yqa
+
+
+%test
+
+eval "$(conda shell.bash hook)"
+conda activate multiqc_env
+
+
+%help
+
+Containerized Conda environment using miniforge3.
+When using the container, activate with:
+    eval "$(conda shell.bash hook)"
+    conda activate multiqc_env
