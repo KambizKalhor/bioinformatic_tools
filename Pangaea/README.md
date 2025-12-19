@@ -6,7 +6,7 @@ https://github.com/ericcombiolab/Pangaea/blob/main/README.md
 ## how to install pangaea:
 ### 1. Download the installer file
 ```bash
-curl -O https://raw.githubusercontent.com/KambizKalhor/bioinformatic_tools/master/build_pangaea.sh
+curl -O https://raw.githubusercontent.com/KambizKalhor/bioinformatic_tools/master/Pangaea/build_pangaea.sh
 ```
 
 ### 2. build it, don't forget to set a path for apptainer cache
