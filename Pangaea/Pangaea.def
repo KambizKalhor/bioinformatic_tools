@@ -1,0 +1,41 @@
+Bootstrap: docker
+From: condaforge/miniforge3:latest
+
+
+%post
+
+# Update packages
+apt-get -y update
+apt-get -y upgrade
+
+# Install Conda environment
+eval "$(conda shell.bash hook)"
+conda create -n Pangaea_env -y
+conda activate Pangaea_env
+conda install -yq python
+
+# Clone and build Pangaea
+git clone https://github.com/ericcombiolab/Pangaea.git /opt/Pangaea
+cd /opt/Pangaea
+chmod +x build.sh
+./build.sh
+
+# Remove unneeded files
+apt-get -y clean
+rm -rf /var/lib/apt/lists/*
+conda clean -yqa
+
+
+%test
+
+eval "$(conda shell.bash hook)"
+conda activate Pangaea_env
+python --version
+
+
+%help
+
+Containerized Conda environment using miniforge3.
+When using the container, activate with:
+    eval "$(conda shell.bash hook)"
+    conda activate Pangaea_env
