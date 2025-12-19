@@ -7,7 +7,7 @@
 
 
 # ==== USAGE ====
-# this script is to build Pangaea
+# this script is to build multiqc
 # sbatch build_pangaea.sh /path/to/apptainer_cache
 # =================
 
@@ -30,7 +30,7 @@ echo "Using Apptainer cache directory: $APPTAINER_CACHEDIR"
 module load apptainer
 
 # 3. Download the definition file
-curl -O https://raw.githubusercontent.com/KambizKalhor/bioinformatic_tools/master/Pangaea.def
+curl -O https://raw.githubusercontent.com/KambizKalhor/bioinformatic_tools/master/multiqc/multiqc.def
 
 # 4. Build the SIF image
-apptainer build Pangaea.sif Pangaea.def
+apptainer build Multiqc.sif multiqc.def
